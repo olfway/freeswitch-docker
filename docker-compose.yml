@@ -1,0 +1,29 @@
+version: '2.3'
+
+services:
+
+  freeswitch-unpack:
+    image: olfway/freeswitch-unpack
+    build:
+      context: .
+      target: unpack
+    init: true
+    hostname: freeswitch-unpack
+    container_name: freeswitch-unpack
+
+  freeswitch-build:
+    image: olfway/freeswitch-build
+    build:
+      context: .
+      target: build
+    init: true
+    hostname: freeswitch-build
+    container_name: freeswitch-build
+
+  freeswitch:
+    image: olfway/freeswitch
+    build:
+      context: .
+    init: true
+    hostname: freeswitch
+    container_name: freeswitch
